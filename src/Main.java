@@ -3,6 +3,7 @@
 import java.io.FileNotFoundException;
 import java.nio.file.Files;
 
+import java.nio.file.Path;
 import java.util.List;
 import java.util.Scanner;
 
@@ -12,26 +13,27 @@ import static java.nio.file.Path.*;
 public class Main {
     public static void main(String[] args) {
 
-        // String languageCode = "абвгґдеєжзиіїйклмнопрстуфхцчшщьюя.,\"\":-!? "; // Створюю алфавіт по якому ми будемо проходитися під час шифрувані
-        //char[] chars = .toCharArray();
-
         Scanner scanner = new Scanner(System.in);
+        System.out.println("Введіть шлях жо файлу: ");
+        String filePath = scanner.nextLine();
+        Path path = Path.of(filePath);
+
         System.out.print("Виберіть шифрування(encoding) або розшифрування(decoding): ");
         String in = scanner.nextLine();
-        String path = "d://test.txt";
+       // String path = "d://test.txt";
         System.out.print("Введіть крок сдвигу: ");
         int numb = scanner.nextInt();
 
         try {
             //Вибір напрямку програми
             if (in.equals("encoding")) {
-                if (exists(of(path))) {
-                    List<String> list = Files.readAllLines(of(path));
+                if (exists(of(filePath))) {
+                    List<String> list = readAllLines(of(filePath));
                     new Encoding(list.toString(), numb);
                 }
             } else if (in.equals("decoding")) {
-                if (exists(of(path))) {
-                    List<String> list = Files.readAllLines(of(path));
+                if (exists(of(filePath))) {
+                    List<String> list = readAllLines(of(filePath));
                     new Decoding(list.toString(), numb);
                 }
             }

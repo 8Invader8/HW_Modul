@@ -6,9 +6,8 @@ import java.util.Objects;
 
 import static java.nio.file.Files.writeString;
 
-public class Decoding {
-//    public static final String LANGUAGECODE = "абвгґдеєжзиіїйклмнопрстуфхцчшщьюя.,\"\":-!? ";
-    public static final String LANGUAGECODE = "abcdefghijklmnopqrstuvwxyz .,\":-!?";
+public class Decoding extends Encoding{
+
     public  Decoding(String code, int numb){
         char[] result = code.toCharArray();
         Path path = Path.of("d://result.txt");
