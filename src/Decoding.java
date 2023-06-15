@@ -8,22 +8,21 @@ import static java.nio.file.Files.writeString;
 
 public class Decoding {
 //    public static final String LANGUAGECODE = "абвгґдеєжзиіїйклмнопрстуфхцчшщьюя.,\"\":-!? ";
-    public static final String LANGUAGECODE = "abcdefghijklmnopqrstuvwxyz .,\"\":-!?";
+    public static final String LANGUAGECODE = "abcdefghijklmnopqrstuvwxyz .,\":-!?";
     public  Decoding(String code, int numb){
         char[] result = code.toCharArray();
         Path path = Path.of("d://result.txt");
         String str = "";
         for(int i = 0; i < result.length;i++){
             for(int j = 0; j < LANGUAGECODE.length(); j++) {
-                if (code.charAt(i) == LANGUAGECODE.charAt(j)) {
+                if (Character.toLowerCase(code.charAt(i)) == LANGUAGECODE.charAt(j)) {
                     if(j == 0) {
                         j = LANGUAGECODE.length() - 1;
                         result[i] = LANGUAGECODE.charAt(j - numb);
                         j = 0;
-                    }else if(j == LANGUAGECODE.length() - 1){
-                        j = 1;
-                        result[i] = LANGUAGECODE.charAt(j - numb);
-                        j = LANGUAGECODE.length() - 1;
+                    }else if(j - numb < 0){
+                        int count = j - numb + LANGUAGECODE.length() ;
+                        result[i] = LANGUAGECODE.charAt(count);
                     }else {
                         result[i] = LANGUAGECODE.charAt(j - numb);
                     }

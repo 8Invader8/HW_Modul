@@ -12,15 +12,14 @@ public class Encoding extends Decoding{
         String str = "";
         for(int i = 0; i < result.length;i++){
             for(int j = 0; j < LANGUAGECODE.length(); j++) {
-                if (code.charAt(i) == LANGUAGECODE.charAt(j)){
-                    if(j == 0) {
-                        j = LANGUAGECODE.length() - 1;
-                        result[i] = LANGUAGECODE.charAt(j + numb);
+                if (Character.toLowerCase(code.charAt(i)) == LANGUAGECODE.charAt(j)){
+                    if(j == LANGUAGECODE.length() - 1){
                         j = 0;
-                    }else if(j == LANGUAGECODE.length() - 1){
-                        j = 1;
-                        result[i] = LANGUAGECODE.charAt(j + numb);
+                        result[i] = LANGUAGECODE.charAt(j + numb-1);
                         j = LANGUAGECODE.length() - 1;
+                    }else if(j + numb > LANGUAGECODE.length()){
+                        int count = j + numb - LANGUAGECODE.length() ;
+                        result[i] = LANGUAGECODE.charAt(count);
                     }else {
                         result[i] = LANGUAGECODE.charAt(j + numb);
                     }
