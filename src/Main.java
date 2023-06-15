@@ -27,18 +27,11 @@ public class Main {
             if(in.equals("encoding")){
                 if(exists(of(path))){
                     List<String> list = Files.readAllLines(of(path));
-//                    for (String strv : list){
-//                       // new Encoding(list.toString());
-//                    }
                     new Encoding(list.toString(), numb);
                 }
             }else if(in.equals("decoding")){
                 if(exists(of(path))){
                     List<String> list = Files.readAllLines(of(path));
-
-//                    for (String strv : list){
-//                      //  new Decoding(strv);
-//                    }
                     new Decoding(list.toString(), numb);
                 }
             }
