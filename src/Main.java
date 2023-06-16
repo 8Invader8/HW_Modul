@@ -14,7 +14,7 @@ public class Main {
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Введіть шлях жо файлу: ");
+        System.out.println("Введіть шлях до файлу: ");
         String filePath = scanner.nextLine();
         Path path = Path.of(filePath);
 
@@ -44,6 +44,6 @@ public class Main {
         } finally {
             System.out.print("End!!");
         }
-//Add Vaska durak!!
+
     }
 }
