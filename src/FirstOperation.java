@@ -1,19 +1,21 @@
 import java.io.FileNotFoundException;
 import java.nio.file.Path;
 import java.util.List;
+import java.util.Scanner;
 
 import static java.nio.file.Files.exists;
 import static java.nio.file.Files.readAllLines;
 
-public class FirstOperation extends Constants{
+public class FirstOperation {
 
-    public List<String> ChooseTheFile(){
+    private Scanner scanner = new Scanner(System.in);
+    public List<String> chooseTheFile(){
         System.out.println("Введіть шлях до файлу: ");
         String filePath = scanner.nextLine();
         Path path = Path.of(filePath);
         try {
-            if (exists(Path.of(filePath))) {
-                List<String> list = readAllLines(Path.of(filePath));
+            if (exists(path)) {
+                List<String> list = readAllLines(path);
                 return list;
             }
         } catch (FileNotFoundException e){
@@ -24,7 +26,7 @@ public class FirstOperation extends Constants{
         return null;
     }
 
-    public int ChooseTheStep(){
+    public int chooseTheStep(){
         System.out.print("Введіть крок сдвигу: ");
         int numb = scanner.nextInt();
         return numb;

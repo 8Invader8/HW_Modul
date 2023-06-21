@@ -1,33 +1,46 @@
-import java.io.FileNotFoundException;
-import java.nio.file.Path;
 import java.util.List;
 import java.util.Scanner;
 
-import static java.nio.file.Files.exists;
-import static java.nio.file.Files.readAllLines;
-import static java.nio.file.Path.of;
-
-public class Menu extends Constants{
+public class Menu {
+    public static final String MENU_INFO =
+            """
+                    Choose the options:
+                    1: Encoding
+                    2: Decoding
+                    3: Brute Force
+                    0: Exit
+                    """;
+    public static final String ENCODING_ITEM = "1";
+    public static final String DECODING_ITEM = "2";
+    public static final String BRUTE_FORCE_ITEM = "3";
+    public static final String EXIT_ITEM = "0";
 
     public void Run(){
         System.out.print(MENU_INFO);
-        String in = scanner.nextLine();
+        Scanner menuIn = new Scanner(System.in);
+        String menuChooseItem = menuIn.nextLine();
         List<String> list ;
 
             //Вибір напрямку програми
-            if (in.equals("1")) {
-               list = new FirstOperation().ChooseTheFile();
-               int numb = new FirstOperation().ChooseTheStep();
+            if (menuChooseItem.equals(ENCODING_ITEM)) {
+               list = new FirstOperation().chooseTheFile();
+               int numb = new FirstOperation().chooseTheStep();
                 // String path = "d://test.txt";
                 new Encoding(list.toString(), numb);
 
-            } else if (in.equals("2")) {
-                list = new FirstOperation().ChooseTheFile();
-                int numb = new FirstOperation().ChooseTheStep();
+            } else if (menuChooseItem.equals(DECODING_ITEM)) {
+                list = new FirstOperation().chooseTheFile();
+                int numb = new FirstOperation().chooseTheStep();
                 // String path = "d://test.txt";
                 new Decoding(list.toString(), numb);
 
-            }else if(in.equals("0")){
+            }else if (menuChooseItem.equals(BRUTE_FORCE_ITEM)) {
+                list = new FirstOperation().chooseTheFile();
+
+                // String path = "d://test.txt";
+
+
+            }else if(menuChooseItem.equals(EXIT_ITEM)){
                 System.out.println("Program is going to End. Bye!");
             }
     }
