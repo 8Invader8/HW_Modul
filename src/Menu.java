@@ -10,6 +10,11 @@ public class Menu {
                     3: Brute Force
                     0: Exit
                     """;
+    public static final String MENU_CRYPT = """
+            1. Move letter on 3 and ...
+            2. Move letter on 5 and ...
+            3. Move letter on 7 and ...
+            """;
     public static final String ENCODING_ITEM = "1";
     public static final String DECODING_ITEM = "2";
     public static final String BRUTE_FORCE_ITEM = "3";
@@ -24,21 +29,17 @@ public class Menu {
             //Вибір напрямку програми
             if (menuChooseItem.equals(ENCODING_ITEM)) {
                list = new FirstOperation().chooseTheFile();
-               int numb = new FirstOperation().chooseTheStep();
-                // String path = "d://test.txt";
-                new Encoding(list.toString(), numb);
+               int number = new FirstOperation().chooseTheStep();
+                new Encoding(list.toString(), number);
 
             } else if (menuChooseItem.equals(DECODING_ITEM)) {
                 list = new FirstOperation().chooseTheFile();
                 int numb = new FirstOperation().chooseTheStep();
-                // String path = "d://test.txt";
                 new Decoding(list.toString(), numb);
 
             }else if (menuChooseItem.equals(BRUTE_FORCE_ITEM)) {
                 list = new FirstOperation().chooseTheFile();
-
-                // String path = "d://test.txt";
-
+                new BruteForce(list.toString());
 
             }else if(menuChooseItem.equals(EXIT_ITEM)){
                 System.out.println("Program is going to End. Bye!");

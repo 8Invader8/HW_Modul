@@ -1,41 +1,48 @@
 import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.StandardOpenOption;
 
-import static java.nio.file.Files.writeString;
 
 public class Encoding {
-    public static final String LANGUAGECODE = "абвгґдеєжзиіїйклмнопрстуфхцчшщьюя .,\":-!?";
-    public Encoding(String code, int number){
-        char[] result = code.toCharArray();
+
+    public Encoding(String list, int number){
+        char[] copyOfList = list.toCharArray();
         Path path = Path.of("d://result.txt");
-        String str = "";
-//        for(int i = 0; i < result.length;i++){
-//            for(int j = 0; j < LANGUAGECODE.length(); j++) {
-//                if (Character.toLowerCase(code.charAt(i)) == LANGUAGECODE.charAt(j)){
-//                    if(j == LANGUAGECODE.length() - 1){
-//                        j = 0;
-//                        result[i] = LANGUAGECODE.charAt(j + numb-1);
-//                        j = LANGUAGECODE.length() - 1;
-//                    }else if(j + numb > LANGUAGECODE.length()){
-//                        int count = j + numb - LANGUAGECODE.length() ;
-//                        result[i] = LANGUAGECODE.charAt(count);
-//                    }else {
-//                        result[i] = LANGUAGECODE.charAt(j + numb);
-//                    }
-//                }
-//
-//            }
-//        }
+        if(number == 3){
+            try {
+                Files.writeString(path," * ");
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
 
-        str = String.valueOf(result);
-
-        try {
-            writeString(path, str);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+        } else if (number == 5) {
+            try {
+                Files.writeString(path," ** ");
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        } else if (number == 7) {
+            try {
+                Files.writeString(path," *** ");
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }else {
+            try {
+                Files.writeString(path," %% ");
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        for (char c : copyOfList) {
+          // (char)(c + number);
+            try {
+                Files.writeString(path, String.valueOf((char)(c + number)), StandardOpenOption.APPEND);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         }
     }
 
-    public Encoding() {
-    }
 }
