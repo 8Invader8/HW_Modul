@@ -1,28 +1,32 @@
-import java.util.Objects;
 
-public class AnalyzorForCrypt {
-
+public class AnalyzorForCrypt extends Encoding{
+    private int count = 0;
+    private int keyOptionOne = 1;
+    private int keyOptionTwo = 2;
+    private int keyOptionThree = 3;
+    private int keyOptionFour = 4;
+    private int bigNumberForExample = 9;
+    private char keyCharStar = '*';
+    private char keyCharPersent = '%';
     public int analyzorForCrypt(String list){
         char[] copyOfList = list.toCharArray();
-        int count = 0;
-        char keyCharStar = '*';
-        char keyCharPersent = '%';
-        for (int i = 1; i < 4; i++) {
-            if (Objects.equals(keyCharStar, copyOfList[i])){
-                count++;
-            } else if (Objects.equals(keyCharPersent, copyOfList[i])) {
-                count += 2;
 
+        for (int i = 1; i < 4; i++) {
+            if (copyOfList[i] == keyCharStar){
+                count++;
+            }else if (copyOfList[i] == keyCharPersent) {
+                count += 2;
             }
         }
-        if (count == 1) {
-            return count = 3;
-        } else if (count == 2) {
-            return count = 5;
-        } else if (count == 3) {
-            return count = 7;
-        } else if (count == 4) {
-            return count = 9;
+
+        if (count == keyOptionOne) {
+            return count = firstKeyForStep;
+        } else if (count == keyOptionTwo) {
+            return count = secondKeyForStep;
+        } else if (count == keyOptionThree) {
+            return count = thirdKeyForStep;
+        } else if (count == keyOptionFour) {
+            return count = bigNumberForExample;
         }
         return count;
     }

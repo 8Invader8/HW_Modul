@@ -2,27 +2,35 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
+import java.util.Scanner;
 
 
 public class Encoding {
-
+    protected String choosePathToFile = "Введіть шлях до файлу для запису: ";
+    protected Scanner  scanner = new Scanner(System.in);
+    protected int firstKeyForStep = 3;
+    protected int secondKeyForStep = 5;
+    protected int thirdKeyForStep = 7;
     public Encoding(String list, int number){
         char[] copyOfList = list.toCharArray();
-        Path path = Path.of("d://result.txt");
-        if(number == 3){
+        System.out.print(choosePathToFile);
+        String pathToFile = scanner.nextLine();
+        Path path = Path.of(pathToFile);
+
+        if(number == firstKeyForStep){
             try {
                 Files.writeString(path," * ");
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
 
-        } else if (number == 5) {
+        } else if (number == secondKeyForStep) {
             try {
                 Files.writeString(path," ** ");
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
-        } else if (number == 7) {
+        } else if (number == thirdKeyForStep) {
             try {
                 Files.writeString(path," *** ");
             } catch (IOException e) {
@@ -36,7 +44,6 @@ public class Encoding {
             }
         }
         for (char c : copyOfList) {
-          // (char)(c + number);
             try {
                 Files.writeString(path, String.valueOf((char)(c + number)), StandardOpenOption.APPEND);
             } catch (IOException e) {
@@ -45,4 +52,7 @@ public class Encoding {
         }
     }
 
+    public Encoding() {
+
+    }
 }

@@ -1,14 +1,15 @@
 public class BruteForce {
-
+    private int stepByThree = 3;
+    private int stepByFive = 5;
+    private int stepBySeven = 7;
+    private int stepByNine = 9;
     public BruteForce(String list){
         int number = new AnalyzorForCrypt().analyzorForCrypt(list);
-        switch(number){
-            case 3 -> new KeyOne(list);
-            case 5 -> new KeyTwo(list);
-            case 7 -> new KeyTree(list);
-            case 9 -> new KeyFour(list);
-            default -> System.out.println("I don`t know how to help you!");
+        if(number == stepByThree){ new KeyOne(list);
+        } else if (number == stepByFive) { new KeyTwo(list);
+        } else if (number == stepBySeven) { new KeyTree(list);
+        } else if (number == stepByNine) { new KeyFour(list);
+        }else System.out.println("I don`t know how to help you!");
 
-        }
     }
 }

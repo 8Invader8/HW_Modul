@@ -7,10 +7,10 @@ import static java.nio.file.Files.exists;
 import static java.nio.file.Files.readAllLines;
 
 public class FirstOperation {
-
     private Scanner scanner = new Scanner(System.in);
+
     public List<String> chooseTheFile(){
-        System.out.println("Введіть шлях до файлу: ");
+        System.out.println("Введіть шлях до файлу для считування: ");
         String filePath = scanner.nextLine();
         Path path = Path.of(filePath);
         try {

@@ -1,6 +1,6 @@
-public class KeyTree {
+public class KeyTree extends Encoding{
 
     public KeyTree(String list){
-        new Decoding(list,7);
+        new Decoding(list,thirdKeyForStep);
     }
 }

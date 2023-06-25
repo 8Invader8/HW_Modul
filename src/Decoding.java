@@ -4,14 +4,15 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
 
-public class Decoding {
+public class Decoding extends Encoding{
 
     public  Decoding(String list, int number){
         char[] copyOfList = list.toCharArray();
-        Path path = Path.of("d://result.txt");
+        System.out.print(choosePathToFile);
+        String pathToFile = scanner.nextLine();
+        Path path = Path.of(pathToFile);
 
         for (char c : copyOfList) {
-            // (char)(c - number);
             try {
                 Files.writeString(path, String.valueOf((char)(c - number)), StandardOpenOption.APPEND);
             } catch (IOException e) {

@@ -1,6 +1,6 @@
-public class KeyTwo {
+public class KeyTwo extends Encoding{
 
     public KeyTwo(String list){
-        new Decoding(list, 5);
+        new Decoding(list, secondKeyForStep);
     }
 }
