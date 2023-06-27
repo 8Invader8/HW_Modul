@@ -15,6 +15,7 @@ public class MenuItem {
     private static final String BRUTE_FORCE_ITEM = "3";
     private static final String EXIT_ITEM = "0";
     public static boolean isRunning = true;
+
     public MenuItem(){
         System.out.print(MENU_INFO);
         Scanner menuIn = new Scanner(System.in);
