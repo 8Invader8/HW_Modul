@@ -1,3 +1,10 @@
+package api;
+
+import api.crypting.BruteForce;
+import api.crypting.Decoding;
+import api.crypting.Encoding;
+import api.crypting.FileAndKeyForCrypt;
+
 import java.util.List;
 import java.util.Scanner;
 
@@ -24,17 +31,17 @@ public class MenuItem {
 
         switch (menuChooseItem){
             case ENCODING_ITEM -> {
-                list = new FirstOperation().chooseTheFile();
-                int number = new FirstOperation().chooseTheStep();
+                list = new FileAndKeyForCrypt().chooseTheFile();
+                int number = new FileAndKeyForCrypt().chooseTheKey();
                 new Encoding(list.toString(), number);
             }
             case DECODING_ITEM -> {
-                list = new FirstOperation().chooseTheFile();
-                int numb = new FirstOperation().chooseTheStep();
+                list = new FileAndKeyForCrypt().chooseTheFile();
+                int numb = new FileAndKeyForCrypt().chooseTheKey();
                 new Decoding(list.toString(), numb);
             }
             case BRUTE_FORCE_ITEM -> {
-                list = new FirstOperation().chooseTheFile();
+                list = new FileAndKeyForCrypt().chooseTheFile();
                 new BruteForce(list.toString());
             }
             case EXIT_ITEM -> {

@@ -1,3 +1,5 @@
+package api.crypting;
+
 import java.io.FileNotFoundException;
 import java.nio.file.Path;
 import java.util.List;
@@ -6,17 +8,17 @@ import java.util.Scanner;
 import static java.nio.file.Files.exists;
 import static java.nio.file.Files.readAllLines;
 
-public class FirstOperation {
-    private Scanner scanner = new Scanner(System.in);
+public class FileAndKeyForCrypt {
+    protected Scanner scanner = new Scanner(System.in);
+    protected String choosePathToFile = "Write the path to file for write result: ";
 
     public List<String> chooseTheFile(){
-        System.out.println("Введіть шлях до файлу для считування: ");
+        System.out.println("Write the path to file: ");
         String filePath = scanner.nextLine();
         Path path = Path.of(filePath);
         try {
             if (exists(path)) {
-                List<String> list = readAllLines(path);
-                return list;
+                return readAllLines(path);
             }
         } catch (FileNotFoundException e){
             System.out.println("Cannot find file" + e);
@@ -26,9 +28,14 @@ public class FirstOperation {
         return null;
     }
 
-    public int chooseTheStep(){
-        System.out.print("Введіть крок сдвигу: ");
-        int numb = scanner.nextInt();
-        return numb;
+    public int chooseTheKey(){
+        System.out.print("Write the key for crypt: ");
+        return scanner.nextInt();
+    }
+
+    protected Path PathToFile(){
+        System.out.print(choosePathToFile);
+        String pathToFile = scanner.nextLine();
+        return Path.of(pathToFile);
     }
 }
