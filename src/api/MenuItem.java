@@ -27,22 +27,22 @@ public class MenuItem {
         System.out.print(MENU_INFO);
         Scanner menuIn = new Scanner(System.in);
         String menuChooseItem = menuIn.nextLine();
-        List<String> list ;
+        List<String> inputFileForWork ;
 
         switch (menuChooseItem){
             case ENCODING_ITEM -> {
-                list = new FileAndKeyForCrypt().chooseTheFile();
-                int number = new FileAndKeyForCrypt().chooseTheKey();
-                new Encoding(list.toString(), number);
+                inputFileForWork = new FileAndKeyForCrypt().chooseTheFile();
+                int key = new FileAndKeyForCrypt().chooseTheKey();
+                new Encoding(inputFileForWork.toString(), key);
             }
             case DECODING_ITEM -> {
-                list = new FileAndKeyForCrypt().chooseTheFile();
-                int numb = new FileAndKeyForCrypt().chooseTheKey();
-                new Decoding(list.toString(), numb);
+                inputFileForWork = new FileAndKeyForCrypt().chooseTheFile();
+                int key = new FileAndKeyForCrypt().chooseTheKey();
+                new Decoding(inputFileForWork.toString(), key);
             }
             case BRUTE_FORCE_ITEM -> {
-                list = new FileAndKeyForCrypt().chooseTheFile();
-                new BruteForce(list.toString());
+                inputFileForWork = new FileAndKeyForCrypt().chooseTheFile();
+                new BruteForce(inputFileForWork.toString());
             }
             case EXIT_ITEM -> {
                 System.out.println("Program is going to End. Bye!");

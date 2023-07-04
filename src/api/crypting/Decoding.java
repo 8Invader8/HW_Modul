@@ -4,15 +4,20 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
+import java.util.Scanner;
 
 public class Decoding {
 
-    protected  Path path = new FileAndKeyForCrypt().PathToFile();
+    protected Scanner scanner = new Scanner(System.in);
+    protected String choosePathToFile = "Write the path to file for write result: ";
     public Decoding() {
     }
 
     public Decoding(String textForCrypt, int keyForCrypt){
         char[] copyOfList = textForCrypt.toCharArray();
+        System.out.print(choosePathToFile);
+        String pathToFile = scanner.nextLine();
+        Path path = Path.of(pathToFile);
 
             for (char c : copyOfList) {
                 try {

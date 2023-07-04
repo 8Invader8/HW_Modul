@@ -9,7 +9,7 @@ public class AnalyzorForCrypt extends SecretKey{
     private  static final int IMPORTANT_NUMBER_FOR_CRYPT = 5;
     private static final int BIG_NUMBER_FOR_EXAMPLE = 9;
     private static final char KEY_CHAR_STAR = '*';
-    private static final char KEY_CHAR_PERSENT = '%';
+    private static final char KEY_CHAR_PERСENT = '%';
 
     public int AnalyzorForCrypt(String textForCrypt){
         char[] copyOfList = textForCrypt.toCharArray();
@@ -17,7 +17,7 @@ public class AnalyzorForCrypt extends SecretKey{
         for (int i = 1; i < IMPORTANT_NUMBER_FOR_CRYPT; i++) {
             if (copyOfList[i] == KEY_CHAR_STAR){
                 count++;
-            }else if (copyOfList[i] == KEY_CHAR_PERSENT) {
+            }else if (copyOfList[i] == KEY_CHAR_PERСENT) {
                 count += KEY_TWO;
             }
         }
