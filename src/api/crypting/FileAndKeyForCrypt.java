@@ -10,6 +10,7 @@ import static java.nio.file.Files.readAllLines;
 
 public class FileAndKeyForCrypt {
     protected Scanner scanner = new Scanner(System.in);
+    List<String> emptyList;
 
     public List<String> chooseTheFile(){
         System.out.println("Write the path to file: ");
@@ -24,7 +25,7 @@ public class FileAndKeyForCrypt {
         } catch (Exception e) {
         System.out.println("Oh, you have to a Big one. So, do something!" + e);
         }
-        return null;
+        return emptyList;
     }
 
     public int chooseTheKey(){

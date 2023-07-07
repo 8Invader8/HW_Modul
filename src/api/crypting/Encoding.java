@@ -6,7 +6,6 @@ import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
 import java.util.Scanner;
 
-
 public class Encoding {
     protected Scanner scanner = new Scanner(System.in);
     protected String choosePathToFile = "Write the path to file for write result: ";
@@ -18,7 +17,7 @@ public class Encoding {
         System.out.print(choosePathToFile);
         String pathToFile = scanner.nextLine();
         Path path = Path.of(pathToFile);
-        new SecretKey(keyForCrypt);
+        new SecretKey(pathToFile, keyForCrypt);
 
         for (char c : copyOfList) {
             try {

@@ -21,15 +21,11 @@ public class AnalyzorForCrypt extends SecretKey{
                 count += KEY_TWO;
             }
         }
-
-        if (count == KEY_ONE) {
-            return count = firstKeyForStep;
-        } else if (count == KEY_TWO) {
-            return count = secondKeyForStep;
-        } else if (count == KEY_THREE) {
-            return count = thirdKeyForStep;
-        } else if (count == KEY_FOUR) {
-            return count = BIG_NUMBER_FOR_EXAMPLE;
+        switch (count){
+            case KEY_ONE -> {return firstKeyForStep;}
+            case KEY_TWO -> {return secondKeyForStep;}
+            case KEY_THREE -> {return thirdKeyForStep;}
+            case KEY_FOUR -> {return BIG_NUMBER_FOR_EXAMPLE;}
         }
         return count;
     }

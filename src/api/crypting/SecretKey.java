@@ -11,26 +11,26 @@ public class SecretKey {
     protected int thirdKeyForStep = 7;
     protected Scanner scanner = new Scanner(System.in);
 
-    public SecretKey(){
+    public SecretKey() {
 
     }
-    public SecretKey(int keyForCrypt){
-        if(keyForCrypt == firstKeyForStep){
-            try {
-                Files.writeString(Path.of(scanner.nextLine())," * ");
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
+    public SecretKey(String pathToFile,Integer keyForCrypt){
 
-        } else if (keyForCrypt == secondKeyForStep) {
+        if(keyForCrypt.equals(firstKeyForStep)) {
             try {
-                Files.writeString(Path.of(scanner.nextLine())," ** ");
+                Files.writeString(Path.of(pathToFile)," * ");
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
-        } else if (keyForCrypt == thirdKeyForStep) {
+        } else if (keyForCrypt.equals(secondKeyForStep)) {
             try {
-                Files.writeString(Path.of(scanner.nextLine())," *** ");
+                Files.writeString(Path.of(pathToFile)," ** ");
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        } else if (keyForCrypt.equals(thirdKeyForStep)) {
+            try {
+                Files.writeString(Path.of(pathToFile)," *** ");
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
