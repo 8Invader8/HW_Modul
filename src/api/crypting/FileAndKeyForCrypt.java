@@ -1,6 +1,7 @@
 package api.crypting;
 
 import java.io.FileNotFoundException;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
 import java.util.Scanner;
@@ -13,7 +14,7 @@ public class FileAndKeyForCrypt {
     List<String> emptyList;
 
     public List<String> chooseTheFile(){
-        System.out.println("Write the path to file: ");
+        System.out.print("Write the path to file: ");
         String filePath = scanner.nextLine();
         Path path = Path.of(filePath);
         try {
