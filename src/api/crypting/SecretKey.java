@@ -36,7 +36,7 @@ public class SecretKey {
             }
         }else {
             try {
-                Files.writeString(Path.of(scanner.nextLine())," %% ");
+                Files.writeString(Path.of(pathToFile)," %% ");
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }

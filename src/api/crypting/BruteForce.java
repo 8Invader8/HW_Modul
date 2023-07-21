@@ -17,8 +17,9 @@ public class BruteForce {
         if(key == stepByThree){ new KeyOne(textForCrypt);
         } else if (key == stepByFive) { new KeyTwo(textForCrypt);
         } else if (key == stepBySeven) { new KeyThree(textForCrypt);
-        } else if (key == stepByNine) { new KeyFour(textForCrypt);
-        }else System.out.println("I don`t know how to help you!");
+        } else if (key == stepByNine) { new KeyFour(textForCrypt) ;
+        System.out.println("It was the last chance to Decoding youre file.");;
+        }else System.out.println("Sorry, but you should try to remember youre key of Encoding!");
         
     }
 }
